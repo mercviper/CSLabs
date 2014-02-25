@@ -11,7 +11,8 @@ struct DateOfBirth{
 };
 
 struct Student{
-	string name;
+	string fname;
+	string lname;
 	int ID;
 	short yearInSchool;
 	double GPA;
@@ -38,8 +39,10 @@ Student getStudent(){
 	Address address;
 
 
-	cout << "What is the name of the student?"<<endl;
-	getline(cin, x.name);
+	cout << "What is the first name of the student?"<<endl;
+	getline(cin, x.fname);
+	cout << "What is the last name of the student?"<<endl;
+	getline(cin, x.lname);
 	cout << "What is the ID of the student?"<<endl;
 	cin >> x.ID;
 	cout << "What is the year of the student?"<<endl;
@@ -64,12 +67,12 @@ Student getStudent(){
 }
 
 void printStudent(Student x){
-	cout << x.name << "'s ID is " << x.ID << endl;
-	cout << x.name << "'s GPA is " << x.GPA << endl;
-	cout << x.name << "'s year in school is " << x.yearInSchool << endl;
-	cout << x.name << "'s date of birth is ";
+	cout << x.fname << "/t" << x.lname << "'s ID is " << x.ID << endl;
+	cout << x.fname << "/t" << x.lname << "'s GPA is " << x.GPA << endl;
+	cout << x.fname << "/t" << x.lname << "'s year in school is " << x.yearInSchool << endl;
+	cout << x.fname << "/t" << x.lname << "'s date of birth is ";
 	printDOB(x.DOB);
-	cout << x.name << "'s address is :" << endl;
+	cout << x.fname << "/t" << x.lname << "'s address is :" << endl;
 	printAddress(x.address);
 }
 
