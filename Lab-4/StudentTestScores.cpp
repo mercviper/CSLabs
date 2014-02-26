@@ -27,8 +27,8 @@ StudentTestScores::Display(){
   cout << endl;
 }
 
-/*StudentTestScores::operator=(const StudentTestScores &other){
+StudentTestScores::operator=(const StudentTestScores &other){
   studentName=other.studentName;
   testScores=other.testScores;
   numTestScores=other.numTestScores;
-}*/
+}
