@@ -1,7 +1,13 @@
-StudentTestScores::StudentTestScores(string name, int numScores){
-  studentName=name;
-  numTestScores=numScores;
+StudentTestScores::StudentTestScores(){
+  studentName="";
+  numTestScores=0;
 }
+
+StudentTestScores::StudentTestScores(string name){
+  studentName=name;
+  numTestScores=0;
+}
+
 
 StudentTestScores::StudentTestScores(const StudentTestScores &other){
   studentName=other.studentName;
