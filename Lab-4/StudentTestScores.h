@@ -14,6 +14,7 @@ using namespace std;
 	~StudentTestScores();  				// class destructor
 //  *** ADD a display member function that displays a student's test scores in the // following format:
 //  student Name <tab> number of test scores <tab> test scores separated by tabs <endl>
+	void Display();
 								
 	
 //  *** ADD accessors & mutators HERE	
