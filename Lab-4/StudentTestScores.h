@@ -9,8 +9,9 @@ using namespace std;
 	string studentName;
 	double *testScores;
 	int numTestScores;
-   public:
-	StudentTestScores(string name = "", int numScores = 0);	// class constructor	StudentTestScores(const StudentTestScores &other);      // class copy constructor
+    public:
+    	StudentTestScores(); //default constructor, sets studentName to "" and numTestScores to 0;
+	StudentTestScores(string, int);	// class constructor	StudentTestScores(const StudentTestScores &other);      // class copy constructor
 	~StudentTestScores();  				// class destructor
 //  *** ADD a display member function that displays a student's test scores in the // following format:
 //  student Name <tab> number of test scores <tab> test scores separated by tabs <endl>
@@ -18,9 +19,19 @@ using namespace std;
 								
 	
 //  *** ADD accessors & mutators HERE	
+	/* accessors
+	string getStudentName(); //returns studentName
+	int getTestScores(); //returns testScores
+	int getNumTestScores(); // returns numTestScores
+	
+	mutators
+	
+	void setStudentName(string); //Sets the student's name to the passed string
+	void addTestScore(int); //Adds the passed int as a new test score and increments numTestScores by 1
+	*/
 
 	
-	// void operator=(const StudentTestScores   &other);
+	void operator=(const StudentTestScores   &other);
 
 // *** Stream I/O operations here
 };
