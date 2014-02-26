@@ -10,7 +10,7 @@ using namespace std;
 	double *testScores;
 	int numTestScores;
     public:
-    	StudentTestScores(); //default constructor, sets studentName to "" and numTestScores to 0;
+    	StudentTestScores(string name="", int numScores=0); //default constructor, sets studentName to "" and numTestScores to 0;
 	StudentTestScores(string);	// class constructor sets studentNamt to passed string and numTestscores to 0
 	StudentTestScores(const StudentTestScores &other);      // class copy constructor
 	~StudentTestScores();  				// class destructor
@@ -35,5 +35,9 @@ using namespace std;
 	void operator=(const StudentTestScores &other);
 
 // *** Stream I/O operations here
+	/*
+	friend ostream& operator<< (ostream &out, const StudentTestScores &);
+	friend ostream& operator>> (ostream &out, StudentTestScores &);
+	*/
 };
 #endif 
