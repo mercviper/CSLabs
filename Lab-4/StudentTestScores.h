@@ -11,7 +11,8 @@ using namespace std;
 	int numTestScores;
     public:
     	StudentTestScores(); //default constructor, sets studentName to "" and numTestScores to 0;
-	StudentTestScores(string, int);	// class constructor	StudentTestScores(const StudentTestScores &other);      // class copy constructor
+	StudentTestScores(string);	// class constructor sets studentNamt to passed string and numTestscores to 0
+	StudentTestScores(const StudentTestScores &other);      // class copy constructor
 	~StudentTestScores();  				// class destructor
 //  *** ADD a display member function that displays a student's test scores in the // following format:
 //  student Name <tab> number of test scores <tab> test scores separated by tabs <endl>
@@ -31,7 +32,7 @@ using namespace std;
 	*/
 
 	
-	void operator=(const StudentTestScores   &other);
+	void operator=(const StudentTestScores &other);
 
 // *** Stream I/O operations here
 };
