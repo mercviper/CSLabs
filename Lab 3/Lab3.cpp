@@ -4,9 +4,11 @@ using namespace std;
 #include "Student.h";
 
 int main(){
-Student bob = getStudent();
-printStudent(bob);
-char ch;
-cin >> ch;
-return 0;
+	Student bob = getStudent();
+	printStudent(bob);
+	char ch;
+	cin >> ch;
+	return 0;
 }
+
+
