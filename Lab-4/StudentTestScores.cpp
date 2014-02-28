@@ -32,3 +32,13 @@ StudentTestScores::operator=(const StudentTestScores &other){
   testScores=other.testScores;
   numTestScores=other.numTestScores;
 }
+
+//accessors
+string StudentTestScores::getStudentName(){ //returns studentName
+}
+
+int StudentTestScores::getTestScores(){ //returns testScores
+}
+
+int StudentTestScores::getNumTestScores(){ // returns numTestScores
+}
