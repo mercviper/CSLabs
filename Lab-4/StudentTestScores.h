@@ -25,11 +25,11 @@ using namespace std;
 	int getTestScores(); //returns testScores
 	int getNumTestScores(); // returns numTestScores
 	
-	/*mutators
+	/*mutators*/
 	
 	void setStudentName(string); //Sets the student's name to the passed string
 	void addTestScore(int); //Adds the passed int as a new test score and increments numTestScores by 1
-	*/
+	
 
 	
 	void operator=(const StudentTestScores &other);
