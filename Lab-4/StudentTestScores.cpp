@@ -42,3 +42,10 @@ int StudentTestScores::getTestScores(){ //returns testScores
 
 int StudentTestScores::getNumTestScores(){ // returns numTestScores
 }
+
+//mutators	
+void StudentTestScores::setStudentName(string){ //Sets the student's name to the passed string
+}
+
+void StudentTestScores::addTestScore(int){ //Adds the passed int as a new test score and increments numTestScores by 1
+}
