@@ -13,11 +13,12 @@ using namespace std;
 class Circles    
 {
 public:
-   void setCenter(int x, int y);
+   //void setCenter(int x, int y);
    double findArea();   
    double findCircumference(); 
    void printCircleStats(); // This outputs the radius and center of the circle. 
    Circles (float r);       // Constructor
+   Circles (float r, int x, int y);       // Constructor
    Circles();               // Default constructor
 private: 
    float  radius;
@@ -32,9 +33,10 @@ const double PI = 3.14;
 
 int main()
 {
-   Circles sphere(8);
-   sphere.setCenter(9,10);
-   sphere.printCircleStats();
+   Circles sphere1(2);
+   Circles sphere2;
+   sphere1.printCircleStats();
+   sphere2.printCircleStats();
    char ch;
    cin >> ch;
 
@@ -56,6 +58,13 @@ Circles::Circles(float r)
    radius = r;
    center_y = 0;
    center_x = 0;
+}
+
+Circles::Circles(float r, int x, int y)
+{
+   radius = r;
+   center_y = y;
+   center_x = x;
 }
 
 // Fill in the code to implement the findArea member function
@@ -81,14 +90,14 @@ void Circles::printCircleStats()
    cout << "The center of the circle is (" << center_x 
         << "," << center_y << ")" << endl;
    cout << "The area of the circle is " << findArea() << endl;
-   cout << "The circumference of the circle is (" << findCircumference() << endl;
+   cout << "The circumference of the circle is " << findCircumference() << endl << endl;
 }
 
-void Circles::setCenter(int x, int y)
+/*void Circles::setCenter(int x, int y)
 // This procedure will take the coordinates of the center of the circle from 
 // the user and place them in the appropriate member data.
 
 {
    center_x = x;
    center_y = y;
-} 
+} */
