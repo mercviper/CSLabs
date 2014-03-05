@@ -4,6 +4,9 @@ using namespace std;
 // FILL IN THE CODE TO DECLARE A CLASS CALLED Square.  TO DO THIS SEE
 // THE IMPLEMENTATION SECTION.
 
+		Square();
+		Square(int);
+
 int main()
 {
     Square  box;          // box is defined as an object of the Square class
@@ -19,13 +22,26 @@ int main()
 
    // FILL IN THE CODE THAT WILL RETURN THE PERIMETER FROM A CALL TO A 
    // FUNCTION AND PRINT OUT THAT VALUE TO THE SCREEN 
-
+   
+    Square box1(9);
+    cout << "The area of box1 is " << box1.findArea() << endl;
+    cout << "The perimeter of box1 is "<< box1.findPerimeter() << endl;
+    
 	return 0;
 }
 
 //__________________________________________________________________
 //Implementation section     Member function implementation
 
+Square::Square()
+{
+	side = 1;
+}
+
+Square::Square(int x)
+{
+	side = x;
+}
 //**************************************************
 //                  setSide
 //
