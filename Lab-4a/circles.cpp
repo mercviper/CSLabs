@@ -19,7 +19,9 @@ public:
    void printCircleStats(); // This outputs the radius and center of the circle. 
    Circles (float r);       // Constructor
    Circles (float r, int x, int y);       // Constructor
+   Circles (int x, int y);       // Constructor
    Circles();               // Default constructor
+   ~Circles() //destructor
 private: 
    float  radius;
    int    center_x;
@@ -35,8 +37,10 @@ int main()
 {
    Circles sphere1(2);
    Circles sphere2;
+   Circles sphere3(15,16);
    sphere1.printCircleStats();
    sphere2.printCircleStats();
+   sphere3.printCircleStats();
    char ch;
    cin >> ch;
 
@@ -63,6 +67,13 @@ Circles::Circles(float r)
 Circles::Circles(float r, int x, int y)
 {
    radius = r;
+   center_y = y;
+   center_x = x;
+}
+
+Circles::Circles(int x, int y)
+{
+   radius = 1;
    center_y = y;
    center_x = x;
 }
