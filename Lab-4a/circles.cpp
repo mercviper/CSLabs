@@ -21,7 +21,7 @@ public:
    Circles (float r, int x, int y);       // Constructor
    Circles (int x, int y);       // Constructor
    Circles();               // Default constructor
-   ~Circles() //destructor
+   ~Circles(); //destructor
 private: 
    float  radius;
    int    center_x;
@@ -49,6 +49,9 @@ int main()
 
 //___________________________________________________________________________
 //Implementation section     Member function implementation
+Circles::~Circles(){
+   cout << "This concludes the Circles class." << endl;
+}
 
 Circles::Circles()
 {
