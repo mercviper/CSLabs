@@ -1,5 +1,4 @@
 
-
 #include <iostream>
 using namespace std;
 //_________________________________________________________________________
@@ -51,14 +50,30 @@ int main()
 Circles::Circles()
 {
    radius = 1;
+   center_y = 0;
+   center_x = 0;
 }
 // Fill in the code to implement the non-default constructor
+Circles::Circles(float r)
+{
+   radius = r;
+   center_y = 0;
+   center_x = 0;
+}
 
 // Fill in the code to implement the findArea member function
+Circles::findArea(){
+	float area=0;
+	area = PI*radius*radius;
+	return area;
+}
 
 // Fill in the code to implement the findCircumference member function
-
-
+Circles::findCircumference(){
+	float circ=0;
+	circ = 2*PI*radius;
+	return circ;
+}
 
 void Circles::printCircleStats()
 // This procedure prints out the radius and center coordinates of the circle
@@ -68,6 +83,8 @@ void Circles::printCircleStats()
    cout << "The radius of the circle is " << radius << endl;
    cout << "The center of the circle is (" << center_x 
         << "," << center_y << ")" << endl;
+   cout << "The area of the circle is " << findArea() << endl;
+   cout << "The circumference of the circle is (" << findCircumference() << endl;
 }
 
 void Circles::setCenter(int x, int y)
