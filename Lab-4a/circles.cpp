@@ -21,7 +21,7 @@ public:
    Circles (float r, int x, int y);       // Constructor
    Circles (int x, int y);       // Constructor
    Circles();               // Default constructor
-   ~Circles() //destructor
+   ~Circles(); //destructor
 private: 
    float  radius;
    int    center_x;
