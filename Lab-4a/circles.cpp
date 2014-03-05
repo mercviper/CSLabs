@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 //_________________________________________________________________________
@@ -36,10 +35,8 @@ int main()
    Circles sphere(8);
    sphere.setCenter(9,10);
    sphere.printCircleStats();
-	
-   cout << "The area of the circle is " << sphere.findArea() << endl;
-   cout << "The circumference of the circle is "
-	    << sphere.findCircumference() << endl;
+   char ch;
+   cin >> ch;
 
    return 0;
 }
@@ -62,15 +59,15 @@ Circles::Circles(float r)
 }
 
 // Fill in the code to implement the findArea member function
-Circles::findArea(){
-	float area=0;
+double Circles::findArea(){
+	double area=0;
 	area = PI*radius*radius;
 	return area;
 }
 
 // Fill in the code to implement the findCircumference member function
-Circles::findCircumference(){
-	float circ=0;
+double Circles::findCircumference(){
+	double circ=0;
 	circ = 2*PI*radius;
 	return circ;
 }
