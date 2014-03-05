@@ -5,7 +5,8 @@ using namespace std;
 // THE IMPLEMENTATION SECTION.
 
 		Square();
-		Square(int);
+		Square(int);  // add these after commiting
+		~Square();
 
 int main()
 {
