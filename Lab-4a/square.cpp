@@ -8,6 +8,10 @@ public:
 	void setSide(float);
 	float findArea() const;
 	float findPerimeter() const;
+
+	Square();
+	Square(int);  // add these after commiting
+	~Square();
 };
 
 int main()
@@ -33,13 +37,26 @@ int main()
    
    char st;
    cin >> st;
-
+   
+    Square box1(9);
+    cout << "The area of box1 is " << box1.findArea() << endl;
+    cout << "The perimeter of box1 is "<< box1.findPerimeter() << endl;
+    
 	return 0;
 }
 
 //__________________________________________________________________
 //Implementation section     Member function implementation
 
+Square::Square()
+{
+	side = 1;
+}
+
+Square::Square(int x)
+{
+	side = x;
+}
 //**************************************************
 //                  setSide
 //
