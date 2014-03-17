@@ -10,7 +10,7 @@ public:
 	float findPerimeter() const;
 
 	Square();
-	Square(int);  // add these after commiting
+	Square(float);  // add these after commiting
 	~Square();
 };
 
@@ -34,13 +34,15 @@ int main()
    // FILL IN THE CODE THAT WILL RETURN THE PERIMETER FROM A CALL TO A 
    // FUNCTION AND PRINT OUT THAT VALUE TO THE SCREEN 
    cout << "This is the Perimeter of the square:\n" << box.findPerimeter();
+
+
+    Square box1(9);
+    cout << "The area of box1 is " << box1.findArea() << endl;
+    cout << "The perimeter of box1 is "<< box1.findPerimeter() << endl;
    
    char st;
    cin >> st;
    
-    Square box1(9);
-    cout << "The area of box1 is " << box1.findArea() << endl;
-    cout << "The perimeter of box1 is "<< box1.findPerimeter() << endl;
     
 	return 0;
 }
@@ -53,9 +55,13 @@ Square::Square()
 	side = 1;
 }
 
-Square::Square(int x)
+Square::Square(float x)
 {
 	side = x;
+}
+
+Square::~Square()
+{
 }
 //**************************************************
 //                  setSide
