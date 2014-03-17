@@ -33,7 +33,7 @@ int main()
 
    // FILL IN THE CODE THAT WILL RETURN THE PERIMETER FROM A CALL TO A 
    // FUNCTION AND PRINT OUT THAT VALUE TO THE SCREEN 
-   cout << "This is the Perimeter of the square:\n" << box.findPerimeter();
+   cout << "This is the Perimeter of the square:\n" << box.findPerimeter()<< endl;
 
 
     Square box1(9);
