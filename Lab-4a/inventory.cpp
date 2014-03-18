@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -53,7 +52,7 @@ int main()
    // Fill in the code that declares an array of objects of class Inventory
    // called products. The array should be of size NUMOFPROD
    
-   Inventory products[NUMOFPROD];       //Array of objects
+   Inventory products[NUMOFPROD] = {"Product ID", "Product Quantity"};       //Array of objects
 
    int pos;                   // loop counter
    int id;                    // variable holding the id number
@@ -64,11 +63,19 @@ int main()
    // getId and getAmount member functions somewhere in this code.
    // Example: products[pos].getId(id); will be somewhere in this code
 
-   
+   products[pos].getId(id);
+   infile >> products[NUMORPROD].getId();
+   infile >> products[NUMOFPROD].getAmount();
 
    // Fill in the code to print out the values (itemNumber and numOfItem) for 
    // each object in the array products.
    // This should be done by calling the member function display within a loop
+
+   for (int i = 0; i < NUMOFPROD; i++)
+   {
+   	cout << products[i].getId();
+   	cout << products[i].getAmount();
+   }
 
    return 0;
 
@@ -76,3 +83,17 @@ int main()
 
 
 // Write the implementations for all the member functions of the class.
+void Inventory::getId()
+{
+	
+}
+
+void Inventory::getAmount()
+{
+	
+}
+
+void Inventory::display()
+{
+	
+}
