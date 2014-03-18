@@ -1,5 +1,4 @@
 
-
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -53,6 +52,8 @@ int main()
 
    // Fill in the code that declares an array of objects of class Inventory
    // called products. The array should be of size NUMOFPROD
+   
+   Inventory products[NUMOFPROD];       //Array of objects
 
    int pos;                   // loop counter
    int id;                    // variable holding the id number
@@ -62,6 +63,8 @@ int main()
    // from a file into the array of objects. There should be calls to both  
    // getId and getAmount member functions somewhere in this code.
    // Example: products[pos].getId(id); will be somewhere in this code
+
+   
 
    // Fill in the code to print out the values (itemNumber and numOfItem) for 
    // each object in the array products.
