@@ -71,11 +71,7 @@ int main()
    // each object in the array products.
    // This should be done by calling the member function display within a loop
 
-   for (int i = 0; i < NUMOFPROD; i++)
-   {
-   	cout << products[i].getId();
-   	cout << products[i].getAmount();
-   }
+   Inventory.display();
 
    return 0;
 
@@ -83,17 +79,21 @@ int main()
 
 
 // Write the implementations for all the member functions of the class.
-void Inventory::getId()
+void Inventory::getId(int item)
 {
-	
+   itemNumber = item;	
 }
 
-void Inventory::getAmount()
+void Inventory::getAmount(int num)
 {
-	
+   numOfItem  = num;
 }
 
 void Inventory::display()
 {
-	
+    for (int i = 0; i < NUMOFPROD; i++)
+   {
+   	cout << products[i].getId();
+   	cout << products[i].getAmount();
+   }	
 }
