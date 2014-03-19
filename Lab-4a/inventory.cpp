@@ -62,16 +62,23 @@ int main()
    // from a file into the array of objects. There should be calls to both  
    // getId and getAmount member functions somewhere in this code.
    // Example: products[pos].getId(id); will be somewhere in this code
-
-   products[pos].getId(id);
-   infile >> products[NUMORPROD].getId();
-   infile >> products[NUMOFPROD].getAmount();
+   
+   for(pos=0; pos<NUMOFPROD; pos++){
+   	infile >> id;
+   	infile >> total;
+   	products[pos].getId(id);
+   	products[pos].getAmount(total);
+   	infile.getLine();
+   }
 
    // Fill in the code to print out the values (itemNumber and numOfItem) for 
    // each object in the array products.
    // This should be done by calling the member function display within a loop
 
-   Inventory.display();
+   for (pos = 0; pos < NUMOFPROD; pos++)
+   {
+	products[pos].display();
+   }
 
    return 0;
 
@@ -91,9 +98,5 @@ void Inventory::getAmount(int num)
 
 void Inventory::display()
 {
-    for (int i = 0; i < NUMOFPROD; i++)
-   {
-   	cout << products[i].getId();
-   	cout << products[i].getAmount();
-   }	
+   	cout << "Item number " << products[i].getId() << " has " << products[i].getAmount() << "items in stock.";
 }
