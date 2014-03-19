@@ -79,6 +79,9 @@ int main()
 	products[pos].display();
    }
 
+   char ch;
+   cin >> ch;
+   cin.get();
    return 0;
 
 }
