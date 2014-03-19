@@ -19,7 +19,7 @@ using namespace std;
 //     Item number 432 has 24 items in stock
 
 
-const NUMOFPROD = 10;   // This holds the number of products a store sells
+const int NUMOFPROD = 10;   // This holds the number of products a store sells
 
 class Inventory
 {
@@ -33,7 +33,7 @@ public:
                               // the value of itemnumber and numofitem of the 
                               // object that calls it.
 
-		
+
 
 private:
 
@@ -52,7 +52,7 @@ int main()
    // Fill in the code that declares an array of objects of class Inventory
    // called products. The array should be of size NUMOFPROD
    
-   Inventory products[NUMOFPROD] = {"Product ID", "Product Quantity"};       //Array of objects
+   Inventory products[NUMOFPROD];       //Array of objects
 
    int pos;                   // loop counter
    int id;                    // variable holding the id number
@@ -68,7 +68,6 @@ int main()
    	infile >> total;
    	products[pos].getId(id);
    	products[pos].getAmount(total);
-   	infile.getLine();
    }
 
    // Fill in the code to print out the values (itemNumber and numOfItem) for 
@@ -98,5 +97,5 @@ void Inventory::getAmount(int num)
 
 void Inventory::display()
 {
-   	cout << "Item number " << products[i].getId() << " has " << products[i].getAmount() << "items in stock.";
+   	cout << "Item number " << itemNumber << " has " << numOfItem << " items in stock." << endl;
 }
