@@ -1,0 +1,51 @@
+Lab#5– Classes
+Consider the following Class specification for student test scores: 
+#ifndef STUDENTTESTSCORES_H 
+#define STUDENTTESTSCORES_H 
+#include <string> 
+ 
+using namespace std; 
+ 
+ class StudentTestScores{ 
+ private: 
+ string studentName; 
+ double *testScores; 
+ int numTestScores; 
+ public: 
+ StudentTestScores(string name = "", int numScores = 0); // class constructor
+ StudentTestScores(const StudentTestScores &other); // class copy constructor 
+ ~StudentTestScores(); // class destructor 
+// *** ADD a display member function that displays a student's test scores in the 
+// following format: 
+// student Name <tab> number of test scores <tab> test scores separated by tabs <endl> 
+ 
+ 
+// *** ADD accessors & mutators HERE 
+ 
+ 
+ // void operator=(const StudentTestScores &other); 
+ 
+// *** Stream I/O operations here 
+}; 
+#endif 
+ 
+Exercises 1: 
+1. Create a new project in Visual Studio. 
+2. Add a header file (StudentTestScores.h) with the above class specification 
+3. Declare a display function (prototype only) that displays a student test scores in the format 
+described in the documentation above. 
+4. Add a StudentTestScores.cpp file that implements the class the display member function. 
+5. Implement the class constructor, the destructor, and the copy constructor in the 
+StudentTestScores.cpp file. 
+6. Add test.cpp as a test driver program. Use it to test the functions implemented above. 
+Note: It is recommended that implement and test the member functions one a time. Declare class 
+instances in your test driver and display them using the display member function. 
+ 
+Exercises 2: 1. Add the class accessors and mutators to the class specification.
+1. Implement and test each accessor and each each mutator .
+ 
+Exercises 3: 
+1. Implement the assignment operator and test it 
+Exercises 4: 
+1. Overload the Stream I/O operators. 
+2. Implement and test each of them.
