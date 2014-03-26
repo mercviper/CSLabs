@@ -33,6 +33,22 @@ StudentTestScores::operator=(const StudentTestScores &other){
   numTestScores=other.numTestScores;
 }
 
+friend ostream& operator<< (ostream &out, const StudentTestScores &)
+{
+	cout << "Name: " << StudentTestScores.getStudentName() << endl;
+	cout << "Test Scores: ";
+	for (int element = 0; element < StudentTestScores.getNumTestScores(); element++) //modify size variable accordingly 
+		cout << StudentTestScores.getTestScores(element) << endl;
+	cout << StudentTestScores.getNumTestScores() << endl;
+}
+
+friend ostream& operator>> (ostream &out, StudentTestScores &)
+{
+	cout << "Enter student's name and test score." << endl;
+	cin >> StudentTestScores.setStudentName() >> StudentTestScores.setStudentScores() >> endl;
+}
+
+
 //accessors
 string StudentTestScores::getStudentName(){ //returns studentName
 }
