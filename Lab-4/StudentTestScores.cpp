@@ -33,7 +33,7 @@ StudentTestScores::operator=(const StudentTestScores &other){
   numTestScores=other.numTestScores;
 }
 
-friend ostream& operator<< (ostream &out, const StudentTestScores &)
+friend ofstream& operator<< (ofstream &out, const StudentTestScores &Student)
 {
 	cout << "Name: " << StudentTestScores.getStudentName() << endl;
 	cout << "Test Scores: ";
@@ -42,7 +42,7 @@ friend ostream& operator<< (ostream &out, const StudentTestScores &)
 	cout << StudentTestScores.getNumTestScores() << endl;
 }
 
-friend ostream& operator>> (ostream &out, StudentTestScores &)
+friend ifstream& operator>> (ifstream &in, StudentTestScores &Student)
 {
 	cout << "Enter student's name and test score." << endl;
 	cin >> StudentTestScores.setStudentName() >> StudentTestScores.setStudentScores() >> endl;
