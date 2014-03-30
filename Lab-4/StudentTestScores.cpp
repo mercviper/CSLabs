@@ -34,13 +34,19 @@ StudentTestScores::operator=(const StudentTestScores &other){
 }
 
 //accessors
-string StudentTestScores::getStudentName(){ //returns studentName
+string StudentTestScores::getStudentName()//returns studentName
+{
+  return studentName;
 }
 
-int StudentTestScores::getTestScores(){ //returns testScores
+int StudentTestScores::getTestScores() //returns testScores
+{
+  return testScores;
 }
 
-int StudentTestScores::getNumTestScores(){ // returns numTestScores
+int StudentTestScores::getNumTestScores() // returns numTestScores
+{
+  return numTestScores;
 }
 
 //mutators	
