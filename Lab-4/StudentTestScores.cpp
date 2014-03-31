@@ -26,16 +26,10 @@ friend ofstream& operator<< (ofstream &out, const StudentTestScores &Student)
 {
 	out << "Name: " << Student.studentName << endl;
 	out << "Test Scores: ";
-<<<<<<< HEAD
-	for (int element = 0; element < Student.getNumTestScores(); element++) //modify size variable accordingly 
-		out << Student.testScores[element] << endl;
-	out << Student.getNumTestScores() << endl;
-=======
 	for (int i = 0; i < Student.NumTestScores; i++) 
-		cout << Student.testScores[i] << endl;
+		out << Student.testScores[i] << endl;
 	out << Student.numTestScores << endl;
 	return out;
->>>>>>> Input/Output-Overloads
 }
 
 friend ifstream& operator>> (ifstream &in, StudentTestScores &Student)
