@@ -24,19 +24,27 @@ StudentTestScores::operator=(const StudentTestScores &other){
 
 friend ofstream& operator<< (ofstream &out, const StudentTestScores &Student)
 {
-	out << "Name: " << Student.getStudentName() << endl;
+	out << "Name: " << Student.studentName << endl;
 	out << "Test Scores: ";
+<<<<<<< HEAD
 	for (int element = 0; element < Student.getNumTestScores(); element++) //modify size variable accordingly 
 		out << Student.testScores[element] << endl;
 	out << Student.getNumTestScores() << endl;
+=======
+	for (int i = 0; i < Student.NumTestScores; i++) 
+		cout << Student.testScores[i] << endl;
+	out << Student.numTestScores << endl;
+	return out;
+>>>>>>> Input/Output-Overloads
 }
 
 friend ifstream& operator>> (ifstream &in, StudentTestScores &Student)
 {
-	cout << "Enter student's name and test score." << endl;
-	in >> Student.setStudentName() >> Student.setStudentScores() >> endl; //Use private data members
-									      //instead of function members
-									      //Add returns.
+	cout << "Enter student's name and test scores." << endl;
+	in >> Student.studentName >> endl; 		
+	for (int i=0; i < Student.numTestScores; i++)
+		cin >> Student.*testScores[i] >> endl;
+	return in;
 }										
 
 
