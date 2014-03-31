@@ -1,16 +1,18 @@
-#ifndef STUDENTTESTSCORES_H
-#define STUDENTTESTSCORES_H
 #include <string>
-
+#include <iostream>
 using namespace std;
 
- class StudentTestScores{
+class StudentTestScores{
     private:
 	string studentName;
 	double *testScores;
 	int numTestScores;
     public:
-    	StudentTestScores(string name="", int numScores=0) {studentName=name; numTestScores=numScores;} //default constructor, sets studentName to "" and numTestScores to 0;
+    StudentTestScores(string name="", int numScores=0){
+		studentName=name;
+		numTestScores=numScores;
+		testScores = new double[numTestScores];
+	} //default constructor, sets studentName to "" and numTestScores to 0;
 	StudentTestScores(const StudentTestScores &other);      // class copy constructor
 	~StudentTestScores();  				// class destructor
 //  *** ADD a display member function that displays a student's test scores in the // following format:
@@ -35,8 +37,7 @@ using namespace std;
 
 // *** Stream I/O operations here
 	
-	friend ofstream& operator<< (ostream &out, const StudentTestScores &);
-	friend ifstream& operator>> (ostream &out, StudentTestScores &);
+	friend ostream& operator<< (ostream &out, const StudentTestScores &);
+	friend istream& operator>> (istream &out, StudentTestScores &);
 	
 };
-#endif 
