@@ -24,6 +24,7 @@ void StudentTestScores::Display(){
 }
 
 void StudentTestScores::operator=(const StudentTestScores &other){
+  delete[] testScores;
   studentName=other.studentName;
   numTestScores=other.numTestScores;
   testScores = new double[numTestScores];
