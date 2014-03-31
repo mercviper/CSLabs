@@ -1,14 +1,3 @@
-StudentTestScores::StudentTestScores(){
-  studentName="";
-  numTestScores=0;
-}
-
-StudentTestScores::StudentTestScores(string name){
-  studentName=name;
-  numTestScores=0;
-}
-
-
 StudentTestScores::StudentTestScores(const StudentTestScores &other){
   studentName=other.studentName;
   testScores=other.testScores;
@@ -38,7 +27,7 @@ friend ofstream& operator<< (ofstream &out, const StudentTestScores &Student)
 	out << "Name: " << Student.getStudentName() << endl;
 	out << "Test Scores: ";
 	for (int element = 0; element < Student.getNumTestScores(); element++) //modify size variable accordingly 
-		cout << Student.testScores[element] << endl;
+		out << Student.testScores[element] << endl;
 	out << Student.getNumTestScores() << endl;
 }
 
@@ -57,7 +46,7 @@ string StudentTestScores::getStudentName()//returns studentName
   return studentName;
 }
 
-int StudentTestScores::getTestScores() //returns testScores
+double * StudentTestScores::getTestScores() //returns testScores
 {
   return testScores;
 }
@@ -75,10 +64,13 @@ void StudentTestScores::setStudentName(string NameofStudent){ //Sets the student
 void StudentTestScores::addTestScore(double NewScore){ //Adds the passed int as a new test score and increments numTestScores by 1
  
   numTestScores++;
-  if(numTestScores == 1)
+  double * Scores = new double[numTestScores];
+  double * tmp=testScores;
+  for(int i=0; i<numTestScores-1; i++)
   {
-    double Scores[numTestScores];
+  	Scores[i]=testScores[i];
   }
+  delete[] tmp;
   
   Scores[numTestScores-1] = NewScore;
   
