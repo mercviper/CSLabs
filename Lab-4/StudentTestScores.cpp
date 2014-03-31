@@ -37,7 +37,7 @@ friend ifstream& operator>> (ifstream &in, StudentTestScores &Student)
 	cout << "Enter student's name and test scores." << endl;
 	in >> Student.studentName >> endl; 		
 	for (int i=0; i < Student.numTestScores; i++)
-		cin >> Student.*testScores[i] >> endl;
+		cin >> Student.testScores[i] >> endl;
 	return in;
 }										
 
