@@ -45,7 +45,7 @@ friend ofstream& operator<< (ofstream &out, const StudentTestScores &Student)
 friend ifstream& operator>> (ifstream &in, StudentTestScores &Student)
 {
 	cout << "Enter student's name and test score." << endl;
-	in >> Student.setStudentName() >> Student.setStudentScores() >> endl; //Use private data members
+	in >> Student.studentName >> Student.testScores >> endl; //Use private data members
 									      //instead of function members
 									      //Add returns.
 }										
