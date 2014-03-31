@@ -1,14 +1,20 @@
+#include "StudentTestScores.h"
+#include <iostream>
+
+
 StudentTestScores::StudentTestScores(const StudentTestScores &other){
   studentName=other.studentName;
-  testScores=other.testScores;
   numTestScores=other.numTestScores;
+  testScores = new double[numTestScores];
+  for(int i=0; i<other.numTestScores; i++){
+	  testScores[i]=other.testScores[i];
+  }
 }
 
 StudentTestScores::~StudentTestScores(){
-  delete [] testScores;
 }
 
-StudentTestScores::Display(){
+void StudentTestScores::Display(){
   cout << studentName << "\t" << numTestScores;
   for(int i=0; i<numTestScores; i++){
     cout << "\t" << testScores[i];
@@ -16,28 +22,32 @@ StudentTestScores::Display(){
   cout << endl;
 }
 
-StudentTestScores::operator=(const StudentTestScores &other){
+void StudentTestScores::operator=(const StudentTestScores &other){
   studentName=other.studentName;
-  testScores=other.testScores;
   numTestScores=other.numTestScores;
+  testScores = new double[numTestScores];
+  for(int i=0; i<other.numTestScores; i++){
+	  testScores[i]=other.testScores[i];
+  }
 }
 
-friend ofstream& operator<< (ofstream &out, const StudentTestScores &Student)
+ostream& operator<< (ostream &out, const StudentTestScores &Student)
 {
 	out << "Name: " << Student.studentName << endl;
+	out << "Num Test Scores:" << Student.numTestScores << endl;
 	out << "Test Scores: ";
-	for (int i = 0; i < Student.NumTestScores; i++) 
-		out << Student.testScores[i] << endl;
-	out << Student.numTestScores << endl;
+	for (int i = 0; i < Student.numTestScores; i++) 
+		out << Student.testScores[i] << "\t";
+	out << endl;
 	return out;
 }
 
-friend ifstream& operator>> (ifstream &in, StudentTestScores &Student)
+istream& operator>> (istream &in, StudentTestScores &Student)
 {
 	cout << "Enter student's name and test scores." << endl;
-	in >> Student.studentName >> endl; 		
+	in >> Student.studentName; 		
 	for (int i=0; i < Student.numTestScores; i++)
-		cin >> Student.testScores[i] >> endl;
+		cin >> Student.testScores[i];
 	return in;
 }										
 
