@@ -23,6 +23,17 @@ int main(){
 	cout << "OUTPUT final values of object x followed by object y" << endl << endl;
 	cout << x;
 	cout << y;
+
+	cout << "CREATE new object z as a copy of object y" << endl << endl;
+	StudentTestScores z(y);
+	cout << "OUTPUT object z via standard output operators" << endl << endl;
+	cout << z;
+	cout << "ADD a test score of 91 to object z" << endl << endl;
+	z.addTestScore(91);
+	cout << "OUTPUT final values of object y followed by object z" << endl << endl;
+	cout << y;
+	cout << z;
+
 	char ch;
 	cin >> ch;
 	return 0;
