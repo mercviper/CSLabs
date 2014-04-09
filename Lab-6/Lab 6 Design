@@ -1,0 +1,30 @@
+Write a program that reads a set of student test scores from a text file and generates a report that consists of a list of the students and for each student the number of tests taken, the test scores, average score, and student’s letter grade. All the tests are equally weighted and the letter grade is determined based on standard grading formula (i.e. A: [90, 100]; B: [80, 90[; C:[70, 80[; D:[60, 70[; F: below 60; U if no test is taken yet). Note also that students don’t necessarily take the same number of tests. 
+
+Input file format: the first line of the input file is the number of student records stored in the file. Each subsequent line is a student record consisting of the student’s name, followed by the number of tests the student has taken, followed by the test scores. All fields are separated by one tab character. See example below for a sample input and output: 
+3
+Mary K. Smith<tab>2<tab>97.5<tab>98 
+Kevin Nguyen 5 66.8 75.5 85.5 92 91 
+Mohsen Jebril 1 88.2 
+
+Output format: The output should go to the standard output device and should have the following format: 
+Mary K. Smith<tab>2<tab>97.5<tab>98<tab>97.75<tab>A 
+Kevin Nguyen 5 66.8 75.5 85.5
+Mohsen Jebril 1 88.2 88.2 B
+What we need:
+TestScores class definition
+StudentTestScores:
+-	Create averageTestScore function that returns the averaged grade of the student (Juan)
+-	Re-use code from Lab 5, rewriting the << and >> operator overloads to fit with the new problem. (Jara)
+-	Rewrite StudentTestScores.h to reflect the changes made. (Juan)
+Main file: 
+-	Prompt user for input filepath name.
+-	Read file data to program.
+o	Create fstream variable
+o	First line data = #students
+o	Create StudentTestScores array of #students
+o	For each i < #students, read a line from the fstream into StudentTestScores[i]
+-	Generate Report & Output to standard output
+o	For each student in the array, generate an average score to determine the letter grade
+o	Then output according to instructions.
+Test File:
+-	Create a test file to debug the program.
