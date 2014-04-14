@@ -21,8 +21,8 @@ Main file:
 -	Read file data to program.
 o	Create fstream variable
 o	First line data = #students
-o	Create StudentTestScores array of #students
-o	For each i < #students, read a line from the fstream into StudentTestScores[i]
+o	Create StudentTestScores array Scores of #students
+o	For each i < #students, read a line from the fstream into Scores[i]
 -	Generate Report & Output to standard output
 o	For each student in the array, generate an average score to determine the letter grade
 o	Then output according to instructions.
