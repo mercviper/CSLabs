@@ -24,13 +24,18 @@ int main(){
 		scores = new StudentTestScores[numStudents];
 		inFile.get();
 
-	  
+		cout << "here we input scores from file" << endl;
 		for(int i = 0; i < numStudents; i++){
 			inFile >> scores[i];
+			inFile.get();
 		}
 
 		 
+		cout << "here we have finished inputting scores from file" << endl;
+		cin.get();
 	}
+		cout << "here parse scores from file and generate the report" << endl;
+		cin.get();
 //-	Read file data to program.
 //o	Create fstream variable
 	//fstream variable >> scores;

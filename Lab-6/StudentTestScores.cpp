@@ -80,14 +80,18 @@ ifstream& operator>> (ifstream &in, StudentTestScores &Student)
 //o	First line data = #students
 //o	Create StudentTestScores array Scores of #students
 //o	For each i < #students, read a line from the fstream into Scores[i]
-	string name;
+	char name[80];
 	double score;
-	int numScores;
-	in.getline(Student.studentName, 80, '\t'); 
-	in.getline(Student.numTestScores, 80, '\t');
-	
-	for (int i=0; i < Student.numTestScores; i++)
-		in.getline(Student.testScores[i], 80,'\t');
+	in >> name;
+	in.get();
+	in >> Student.numTestScores;
+	in.get();
+	Student.testScores=new double[numTestScores];
+	for (int i=0; i < Student.numTestScores; i++){
+		in >> score;
+		Student.testScores[i]=score;
+		//cout << "this is the score : " << score;
+	}
 	return in;
 	/*
 istream &operator >>(istream &inFile , StudentTestScores &student)
