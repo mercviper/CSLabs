@@ -75,7 +75,7 @@ ofstream& operator<< (ofstream &out, const StudentTestScores &Student) //look at
 	return out;
 }
 
-istream& operator>> (istream &in, StudentTestScores &Student)
+ifstream& operator>> (ifstream &in, StudentTestScores &Student)
 {
 //o	First line data = #students
 //o	Create StudentTestScores array Scores of #students
