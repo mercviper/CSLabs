@@ -1,0 +1,5 @@
+4
+Mary K. Smith	2	97.5	98
+Kevin Nguyen	5	66.8	75.5	85.5	92	91
+Mohsen Jebril	1	88.2
+Chris Chan	5	90	77	65	74	88
