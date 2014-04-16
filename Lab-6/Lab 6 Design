@@ -17,12 +17,20 @@ StudentTestScores:
 -	Re-use code from Lab 5, rewriting the << and >> operator overloads to fit with the new problem. (Jara)
 -	Rewrite StudentTestScores.h to reflect the changes made. (Juan)
 Main file: 
--	Prompt user for input filepath name.
--	Read file data to program.
-o	Create fstream variable
-o	First line data = #students
-o	Create StudentTestScores array Scores of #students
-o	For each i < #students, read a line from the fstream into Scores[i]
+main(){
+  cout << "Please enter file location." << endl; 	    //Prompt user for input filepath name.
+  getline(cin, fileLocation);                         //Read file data to program.
+  ifstream fileName;                                  //Create fstream variable
+  fileName.open(fileLocation);                        //open file
+  cout << "Opening file...\n"; 
+  getline(fileName, #students);                       //	First line data = #students
+  int StudentTestScores[#students];                   //	Create StudentTestScores array Scores of #students
+  while (i < #students, getline(fileName,line){       //	For each i < #students, read a line from the fstream into Scores[i]
+    fileName >> StudentTestScores[i];
+    i++;
+  }
+  fileName.close();
+
 -	Generate Report & Output to standard output
 o	For each student in the array, generate an average score to determine the letter grade
 o	Then output according to instructions.
