@@ -9,9 +9,10 @@ class StudentTestScores{
 	int numTestScores;
 	char letterGrade;
     public:
-    StudentTestScores(string name="", int numScores=0){
+    StudentTestScores(string name="", int numScores=0, char grade=' '){
 		studentName=name;
 		numTestScores=numScores;
+		letterGrade=grade;
 		testScores = new double[numTestScores];
 	} //default constructor, sets studentName to "" and numTestScores to 0;
 	StudentTestScores(const StudentTestScores &other);      // class copy constructor
@@ -39,7 +40,7 @@ class StudentTestScores{
 
 // *** Stream I/O operations here
 	
-	friend ofstream& operator<< (ofstream &out, const StudentTestScores &);
-	friend ifstream& operator>> (ifstream &out, StudentTestScores &);
+	friend ostream& operator<< (ostream &out, const StudentTestScores &);
+	friend istream& operator>> (istream &out, StudentTestScores &);
 	
 };
