@@ -24,3 +24,12 @@ List::~List(){
 	}
 	Delete(myInt);
 }
+
+void List::Print() const {
+}
+
+void List::Insert(int newInt){
+}
+
+void List::Delete(int tarInt){
+}
