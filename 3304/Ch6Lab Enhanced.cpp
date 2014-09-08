@@ -9,7 +9,7 @@ class List{
 				ListNode * next;
 			public:
 				ListNode(int i=0, ListNode * n = NULL) {myInt=i; next=n;}
-				~ListNode(){ cout << "Node has been deleted." << endl;}
+				~ListNode(){ cout << "Node has been deleted." << endl << endl;}
 				int getMyInt() {return myInt;}
 				void setMyInt(int i) {myInt=i;}
 				ListNode * getNext() {return next;}
@@ -28,6 +28,8 @@ void menu();
 
 int main(){
 	menu();
+	cin.ignore(INT_MAX, '\n');
+	cin.get();
 	return 0;
 }
 
@@ -61,6 +63,10 @@ void menu(){
 			cout << endl << endl;
 			intList->Delete(tarInt);
 			break;
+		case 4:
+			cout << "Goodbye." << endl << endl;
+			delete intList;
+			break;
 		default:
 			cout << "Please enter a valid option." << endl << endl;
 		}
@@ -69,6 +75,9 @@ void menu(){
 }
 
 List::~List(){
+	while(head!=NULL){
+		Delete(head->getMyInt());
+	}
 }
 
 void List::Print() const {
