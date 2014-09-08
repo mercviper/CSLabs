@@ -17,8 +17,7 @@ void test();
 
 int main(){
 	test();
-	char ch;
-	cin >> ch;
+	cin.get();
 	return 0;
 }
 
