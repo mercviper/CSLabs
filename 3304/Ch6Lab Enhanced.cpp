@@ -104,38 +104,28 @@ void List::Insert(int newInt){
 			if(prev!=NULL)
 				prev->setNext(newListNode);
 			else
-				head->setNext(newListNode);
+				head=newListNode;
 		}
 		else
 			index->setNext(newListNode);
 	}
-/*	List * index=this;
-	List * prev=NULL;
-	List * newList = new List(newInt);
-	while(index->next!=NULL && index->myInt<=newInt){
-		prev=index;
-		index=index->next;
-	}
-	if(index->myInt>newInt){
-		newList->next=index;
-		prev->next=newList;
-	}
-	else
-		index->next=newList;*/
 }
 
 void List::Delete(int tarInt){
-	/*List * index=this;
-	List * prev=this;
-	while(index->next!=NULL && index->myInt!=tarInt){
+	ListNode * index=head;
+	ListNode * prev=NULL;
+	while(index->getNext()!=NULL && index->getMyInt()!=tarInt){
 		prev=index;
-		index=index->next;
+		index=index->getNext();
 	}
-	if(index->myInt==tarInt){
-		prev->next=index->next;
-		index->next=NULL;
+	if(index->getMyInt()==tarInt){
+		if(prev!=NULL)
+			prev->setNext(index->getNext());
+		else
+			head = index->getNext();
+		index->setNext(NULL);
 		delete index;
 	}
 	else
-		cout << "Target Integer not found in list" << endl << endl;*/
+		cout << "Target Integer not found in list" << endl << endl;
 }
