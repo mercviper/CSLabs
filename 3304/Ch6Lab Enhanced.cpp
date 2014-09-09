@@ -9,7 +9,7 @@ class List{
 				ListNode * next;
 			public:
 				ListNode(int i=0, ListNode * n = NULL) {myInt=i; next=n;}
-				~ListNode(){ cout << "Node has been deleted." << endl << endl;}
+				~ListNode(){ cout << "Node has been deleted with a value of " << myInt << "." << endl << endl;}
 				int getMyInt() {return myInt;}
 				void setMyInt(int i) {myInt=i;}
 				ListNode * getNext() {return next;}
@@ -25,6 +25,7 @@ class List{
 };
 
 void menu();
+int getInt();
 
 int main(){
 	menu();
@@ -36,42 +37,60 @@ int main(){
 void menu(){
 	List * intList = new List;
 	int choice=0;
+	enum menuChoices {PRINT, INSERT, DELETE, EXIT};
 	cout << "Lab exercise for Chapter 6 Lists" << endl;
 	while(choice!=4){
 		cout << "Please pick from the following options:" << endl;
 		cout << "[1] Print current list" << endl;
 		cout << "[2] Insert integer to list" << endl;
 		cout << "[3] Delete integer from list" << endl;
-		cout << "[4] Exit" << endl;
-		cin >> choice;
-		cout << endl << endl;
-		switch(choice){
-		case 1:
-			intList->Print();
-			break;
-		case 2:
-			int newInt;
-			cout << "Enter the new integer to be added" << endl;
-			cin >> newInt;
-			cout << endl << endl;
-			intList->Insert(newInt);
-			break;
-		case 3: 
-			int tarInt;
-			cout << "Enter the integer to be deleted" << endl ;
-			cin >> tarInt;
-			cout << endl << endl;
-			intList->Delete(tarInt);
-			break;
-		case 4:
-			cout << "Goodbye." << endl << endl;
-			delete intList;
-			break;
-		default:
-			cout << "Please enter a valid option." << endl << endl;
+		cout << "[4] Exit" << endl << endl;
+		choice = getInt();
+		cout << endl;
+		switch(choice-1){
+			case PRINT:
+				intList->Print();
+				break;
+			case INSERT:
+				int newInt;
+				cout << "Enter the new integer to be added" << endl << endl;
+				newInt = getInt();
+				cout << endl;
+				intList->Insert(newInt);
+				break;
+			case DELETE: 
+				int tarInt;
+				cout << "Enter the integer to be deleted" << endl << endl;
+				tarInt = getInt();
+				cout << endl;
+				intList->Delete(tarInt);
+				break;
+			case EXIT:
+				cout << "Goodbye." << endl << endl;
+				delete intList;
+				break;
+			default:
+				cout << "Please enter a valid option." << endl << endl;
 		}
 	}
 
+}
+
+int getInt(){
+	int input;
+	do{
+		if(cin.fail()){ //if stream buffer had previously failed, clear and reset for valid input
+			cin.clear();
+			cin.ignore(INT_MAX, '\n');
+		}
+
+		cin >> input;
+
+		if(cin.fail()){
+			cout << "Not an integer." << endl << endl;
+		}
+	}while(cin.fail());
+	return input;
 }
 
 List::~List(){
