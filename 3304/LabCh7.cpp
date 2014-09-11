@@ -86,7 +86,6 @@ void findPrimes(int x){
 	while(x!=1){
 		while(x%prime!=0){
 			prime++;
-		cin.get();
 		}
 		primeStack->Push(prime);
 		x/=prime;
