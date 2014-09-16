@@ -1,4 +1,8 @@
-/*Use a linked stack to determine the prime factors of a given number.
+/*
+CS 3304
+Chris Chan
+Last updated 9/9/14
+Use a linked stack to determine the prime factors of a given number.
 Accept a number from the user
 Increasingly divide the given number starting from 2 until it divides evenly to find the first prime factor.
   - Push prime factor into stack
@@ -30,7 +34,6 @@ class Stack{
 		bool isEmpty();
 		void Push(int);
 		int Pop();
-		void Print() const;
 };
 
 int getInt();
