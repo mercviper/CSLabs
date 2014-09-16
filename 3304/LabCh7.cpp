@@ -1,7 +1,7 @@
 /*
 CS 3304
 Chris Chan
-Last updated 9/9/14
+Last updated 9/16/14
 Use a linked stack to determine the prime factors of a given number.
 Accept a number from the user
 Increasingly divide the given number starting from 2 until it divides evenly to find the first prime factor.
@@ -54,6 +54,7 @@ int main(){
 				int newInt;
 				cout << "Enter a number." << endl << endl;
 				newInt = getInt();
+				cout << endl;
 				findPrimes(newInt);
 				break;
 			case EXIT:
@@ -84,17 +85,20 @@ int getInt(){
 }
 
 void findPrimes(int x){
+	int q=x;
 	int prime = 2;
 	Stack * primeStack = new Stack;
-	while(x!=1){
-		while(x%prime!=0){
+	while(q>1){
+		while(q%prime!=0){
 			prime++;
 		}
 		primeStack->Push(prime);
-		x/=prime;
+		q/=prime;
 	}
 	if(primeStack->isEmpty())
 		cout << "No prime numbers were found." << endl << endl;
+	else
+		cout << "The prime factors of "<< x << " are as follows:" << endl << endl;
 	while(!primeStack->isEmpty()){
 		cout << primeStack->Pop();
 		if(!primeStack->isEmpty())
