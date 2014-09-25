@@ -114,6 +114,18 @@ int getInt(){
 }
 
 void convertBase(float decimal, int newBase){
+	float product=decimal;
+	Queue * convDecimal = new Queue();
+	while(product!=0){
+		product*=newBase;
+		convDecimal->Enqueue(floor(product));
+		product-=floor(product);
+	}
+	cout << decimal << " converted to base" << newBase << " is 0.";
+	while(!convDecimal->isEmpty()){
+		cout << convDecimal->Dequeue();
+	}
+	cout << endl << endl;
 }
 
 bool Queue::isEmpty(){
