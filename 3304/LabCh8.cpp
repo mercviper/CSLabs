@@ -37,10 +37,11 @@ class Queue{
 };
 
 int getInt();
-void findPrimes(int);
+float getDecimal();
+void convertBase(float, int);
 
 int main(){
-	enum menuChoices {PRIME, EXIT};
+	enum menuChoices {CONVERTBASE, EXIT};
 	int choice=0;
 	cout << "Lab Exercise for Chapter 8 for Linked Queues" << endl;
 	while(choice!=2){
@@ -50,16 +51,20 @@ int main(){
 		choice = getInt();
 		cout << endl;
 		switch(choice-1){
-			case PRIME:
+			case CONVERTBASE:
 				float newNum;
-				int newInt;
+				int newBase;
 				cout << "Enter a decimal." << endl << endl;
 				newNum = getDecimal();
 				cout << endl;
-				cout << "Enter a base to convert to." << endl << endl;
-				newInt = getInt();
+				cout << "Enter a base to convert to (from 2 to 9)." << endl << endl;
+				newBase = getInt();
+				if(newBase<=1 || newBase>=10){
+					cout << "Please enter a number between 2 to 9." << endl << endl;
+					newBase = getInt();
+				}
 				cout << endl;
-				convertBase(newNum, base);
+				convertBase(newNum, newBase);
 				break;
 			case EXIT:
 				cout << "Goodbye." << endl << endl;
@@ -84,7 +89,10 @@ float getDecimal(){
 		if(cin.fail()){
 			cout << "Not a decimal." << endl << endl;
 		}
-	}while(cin.fail());
+		if(input<=0 || input>=1){
+			cout << "Please enter a fraction between 0 and 1" << endl << endl;
+		}
+	}while(cin.fail() || input<=0 || input>=1);
 	return input;
 }
 
