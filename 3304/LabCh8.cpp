@@ -52,19 +52,16 @@ int main(){
 		cout << "[1] Convert a decimal fraction to another base." << endl;
 		cout << "[2] Exit" << endl << endl;
 		choice = getInt();
-		cout << endl;
 		switch(choice-1){
 			case CONVERTBASE:
 				cout << "Enter a decimal." << endl << endl;
 				newNum = getDecimal();
-				cout << endl;
 				cout << "Enter a base to convert to (from 2 to 9)." << endl << endl;
 				newBase = getInt();
 				if(newBase<=1 || newBase>=10){
 					cout << "Please enter a number between 2 to 9." << endl << endl;
 					newBase = getInt();
 				}
-				cout << endl;
 				convertBase(newNum, newBase);
 				break;
 			case EXIT:
@@ -87,7 +84,8 @@ string getDecimal(){
 		}
 
 		cin >> input;
-		decimal = atof(input.c_str());
+		cout << endl;
+		decimal = strtod(input.c_str(),NULL);
 		if(cin.fail()){
 			cout << "Not a decimal." << endl << endl;
 		}
@@ -109,6 +107,7 @@ int getInt(){
 		}
 
 		cin >> input;
+		cout << endl;
 
 		if(cin.fail()){
 			cout << "Not an integer." << endl << endl;
@@ -118,7 +117,7 @@ int getInt(){
 }
 
 void convertBase(string decimal, int newBase){
-	double product=atof(decimal.c_str());
+	double product=strtod(decimal.c_str(),NULL);
 	int count=0;
 	Queue * convDecimal = new Queue();
 	while(product!=0 && count<decimal.substr(decimal.find(".")+1).size()){
@@ -127,7 +126,7 @@ void convertBase(string decimal, int newBase){
 		product-=floor(product);
 		count++;
 	}
-	cout << decimal << " converted to base " << newBase << " is 0.";
+	cout << strtod(decimal.c_str(),NULL) << " converted to base " << newBase << " is 0.";
 	while(!convDecimal->isEmpty()){
 		cout << convDecimal->Dequeue();
 	}
