@@ -1,7 +1,7 @@
 /*
 CS 3304
 Chris Chan
-Last updated 9/25/14
+Last updated 9/29/14
 Use a linked queue to convert a base-10 fraction to an equivalent fraction in base-2 to base-9 based on user input.
 Prompt user for a decimal fraction between 0 and 1.
 Prompt user for a number base to convert the fraction to. (radix)
@@ -10,6 +10,7 @@ The ignored values will be enqueued and then dequeued to represent the converted
 */
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 class Queue{
@@ -37,10 +38,12 @@ class Queue{
 };
 
 int getInt();
-float getDecimal();
-void convertBase(float, int);
+string getDecimal();
+void convertBase(string, int);
 
 int main(){
+	string newNum;
+	int newBase;
 	enum menuChoices {CONVERTBASE, EXIT};
 	int choice=0;
 	cout << "Lab Exercise for Chapter 8 for Linked Queues" << endl;
@@ -52,8 +55,6 @@ int main(){
 		cout << endl;
 		switch(choice-1){
 			case CONVERTBASE:
-				float newNum;
-				int newBase;
 				cout << "Enter a decimal." << endl << endl;
 				newNum = getDecimal();
 				cout << endl;
@@ -76,8 +77,9 @@ int main(){
   return 0;
 }
 
-float getDecimal(){
-	float input;
+string getDecimal(){
+	string input;
+	double decimal=0;
 	do{
 		if(cin.fail()){ //if stream buffer had previously failed, clear and reset for valid input
 			cin.clear();
@@ -85,14 +87,16 @@ float getDecimal(){
 		}
 
 		cin >> input;
-
+		decimal = atof(input.c_str());
 		if(cin.fail()){
 			cout << "Not a decimal." << endl << endl;
 		}
-		if(input<=0 || input>=1){
+		if(decimal<=0 || decimal>=1){
 			cout << "Please enter a fraction between 0 and 1" << endl << endl;
 		}
-	}while(cin.fail() || input<=0 || input>=1);
+	}while(cin.fail() || decimal<=0 || decimal>=1);
+
+	//cout << input.substr(input.find(".")+1).size() << " this is a test." << endl;
 	return input;
 }
 
@@ -113,15 +117,17 @@ int getInt(){
 	return input;
 }
 
-void convertBase(float decimal, int newBase){
-	float product=decimal;
+void convertBase(string decimal, int newBase){
+	double product=atof(decimal.c_str());
+	int count=0;
 	Queue * convDecimal = new Queue();
-	while(product!=0){
+	while(product!=0 && count<decimal.substr(decimal.find(".")+1).size()){
 		product*=newBase;
 		convDecimal->Enqueue(floor(product));
 		product-=floor(product);
+		count++;
 	}
-	cout << decimal << " converted to base" << newBase << " is 0.";
+	cout << decimal << " converted to base " << newBase << " is 0.";
 	while(!convDecimal->isEmpty()){
 		cout << convDecimal->Dequeue();
 	}
