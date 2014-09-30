@@ -1,4 +1,7 @@
 /*
+CS 3306
+Chris Chan
+Last updated 9/30/14
 Write a program using C++ to find the minimal spanning tree of a graph. The graph is 
 represented by an adjacency matrix.
 */
