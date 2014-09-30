@@ -1,7 +1,7 @@
 /*
 CS 3304
 Chris Chan
-Last updated 9/29/14
+Last updated 9/30/14
 Use a linked queue to convert a base-10 fraction to an equivalent fraction in base-2 to base-9 based on user input.
 Prompt user for a decimal fraction between 0 and 1.
 Prompt user for a number base to convert the fraction to. (radix)
@@ -10,7 +10,6 @@ The ignored values will be enqueued and then dequeued to represent the converted
 */
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Queue{
@@ -38,14 +37,14 @@ class Queue{
 };
 
 int getInt();
-string getDecimal();
-void convertBase(string, int);
+float getDecimal();
+void convertBase(float, int);
 
 int main(){
-	string newNum;
-	int newBase;
 	enum menuChoices {CONVERTBASE, EXIT};
 	int choice=0;
+	float newNum=0;
+	int newBase=0;
 	cout << "Lab Exercise for Chapter 8 for Linked Queues" << endl;
 	while(choice!=2){
 		cout << "Please pick from the following options:" << endl;
@@ -54,29 +53,39 @@ int main(){
 		choice = getInt();
 		switch(choice-1){
 			case CONVERTBASE:
-				cout << "Enter a decimal." << endl << endl;
-				newNum = getDecimal();
-				cout << "Enter a base to convert to (from 2 to 9)." << endl << endl;
-				newBase = getInt();
-				if(newBase<=1 || newBase>=10){
-					cout << "Please enter a number between 2 to 9." << endl << endl;
-					newBase = getInt();
+				while(newNum!=-1){
+					cout << "Enter a decimal." << endl << endl;
+					newNum = getDecimal();
+					while(newNum!=-1 && (newNum<=0 || newNum>=1)){
+						cout << "Please enter a fraction between 0 and 1" << endl << endl;
+						newNum = getDecimal();
+					}
+					if(newNum!=-1){
+						cout << "Enter a base to convert to (from 2 to 9)." << endl << endl;
+						newBase = getInt();
+						if(newBase<=1 || newBase>=10){
+							cout << "Please enter a number between 2 to 9." << endl << endl;
+							newBase = getInt();
+						}
+						convertBase(newNum, newBase);
+					}
 				}
-				convertBase(newNum, newBase);
-				break;
 			case EXIT:
-				cout << "Goodbye." << endl << endl;
+				cout << "Goodbye. Press the enter key to close the window." << endl << endl;
+				choice=2;
 				break;
 			default:
 				cout << "Please enter a valid option." << endl << endl;
 		}
 	}
+	cin.clear();
+	cin.ignore(INT_MAX, '\n');
+	cin.get();
   return 0;
 }
 
-string getDecimal(){
-	string input;
-	double decimal=0;
+float getDecimal(){
+	float input;
 	do{
 		if(cin.fail()){ //if stream buffer had previously failed, clear and reset for valid input
 			cin.clear();
@@ -85,16 +94,11 @@ string getDecimal(){
 
 		cin >> input;
 		cout << endl;
-		decimal = strtod(input.c_str(),NULL);
-		if(cin.fail()){
-			cout << "Not a decimal." << endl << endl;
-		}
-		if(decimal<=0 || decimal>=1){
-			cout << "Please enter a fraction between 0 and 1" << endl << endl;
-		}
-	}while(cin.fail() || decimal<=0 || decimal>=1);
 
-	//cout << input.substr(input.find(".")+1).size() << " this is a test." << endl;
+		if(cin.fail()){
+			cout << "Not a decimal, try again." << endl << endl;
+		}
+	}while(cin.fail());
 	return input;
 }
 
@@ -110,23 +114,23 @@ int getInt(){
 		cout << endl;
 
 		if(cin.fail()){
-			cout << "Not an integer." << endl << endl;
+			cout << "Not an integer, try again." << endl << endl;
 		}
 	}while(cin.fail());
 	return input;
 }
 
-void convertBase(string decimal, int newBase){
-	double product=strtod(decimal.c_str(),NULL);
+void convertBase(float decimal, int newBase){
+	float product=decimal;
 	int count=0;
 	Queue * convDecimal = new Queue();
-	while(product!=0 && count<decimal.substr(decimal.find(".")+1).size()){
+	while(product!=0 && count<20){
 		product*=newBase;
 		convDecimal->Enqueue(floor(product));
 		product-=floor(product);
 		count++;
 	}
-	cout << strtod(decimal.c_str(),NULL) << " converted to base " << newBase << " is 0.";
+	cout << decimal << " converted to base " << newBase << " is 0.";
 	while(!convDecimal->isEmpty()){
 		cout << convDecimal->Dequeue();
 	}
