@@ -65,8 +65,9 @@ int main(){
 			inFile.get();
 		}
 	}
-	cout << "File found!" << endl;
-	cout << "Adjacency matrix of the input is as follows:" << endl << endl;
+	//cout << "File found!" << endl;
+	cout << "Adjacency matrix of the input is as follows:" << endl;
+	cout << numVertices << " vertices, beginning at vertex " << minSpanVertices[0]+1 << endl << endl;
 	for(int i=0; i<numVertices;i++){
 		for(int j=0; j<numVertices;j++){
 			cout << adjMatrix[i][j] << "\t";
