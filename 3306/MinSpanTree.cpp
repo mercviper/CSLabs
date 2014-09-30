@@ -11,6 +11,7 @@ using namespace std;
 int main(){
 	fstream inFile;
 	string filePath;
+	int adjMatrix[10][10]; //will not have matrix bigger than 10x10
 	int numVertices=0, startVertex=0;
 //-	Prompt user for input filepath name.
 	cout << "Where is the file located?" << endl;
@@ -25,7 +26,6 @@ int main(){
 	else{
 		inFile >> numVertices;
 		inFile >> startVertex;
-		int adjMatrix[numVertices][numVertices]; //fix this later/ask linh about max bound for matrices
 		inFile.get(); //grabs rest of the line.
 		/*scores = new StudentTestScores[numStudents];
 		for(int i = 0; i < numStudents; i++){
